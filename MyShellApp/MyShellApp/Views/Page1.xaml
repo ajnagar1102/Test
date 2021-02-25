@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyShellApp.Views.Page1">
+    <ContentPage.Content>
+        <Grid BackgroundColor="YellowGreen">
+            <Grid>
+                <ListView x:Name="Ctgrylist"
+                          HasUnevenRows="True"
+                          ItemSelected="Ctgrylist_ItemSelected">
+                    <ListView.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>1</x:String>
+                            <x:String>2</x:String>
+                            <x:String>3</x:String>
+                            <x:String>4</x:String>
+                            <x:String>5</x:String>
+                            <x:String>6</x:String>
+                            <x:String>7</x:String>
+                            <x:String>8</x:String>
+                            <x:String>9</x:String>
+                        </x:Array>
+                    </ListView.ItemsSource>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                    <Image Source="icon_about.png" HeightRequest="60" WidthRequest="60" BackgroundColor="Yellow"/>
+                                    <Label Text="Your category title"
+                                           TextColor="Black"
+                                           FontSize="15"
+                                           VerticalTextAlignment="Center"
+                                           VerticalOptions="Center"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            
+            <Frame x:Name="subGrid" 
+                  Padding="0"
+                  Margin="65,0,0,0" 
+                  BackgroundColor="WhiteSmoke"
+                   BorderColor="#fafafa"
+                  IsVisible="False"
+                   VerticalOptions="FillAndExpand">
+                <ListView x:Name="SubCtgrylist" 
+                          HasUnevenRows="True"
+                          ItemSelected="SubCtgrylist_ItemSelected">
+                    <ListView.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>1</x:String>
+                            <x:String>2</x:String>
+                            <x:String>3</x:String>
+                            <x:String>4</x:String>
+                            <x:String>5</x:String>
+                            <x:String>6</x:String>
+                            <x:String>7</x:String>
+                            <x:String>8</x:String>
+                            <x:String>9</x:String>
+                        </x:Array>
+                    </ListView.ItemsSource>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                    <Label Text="sub category title"
+                                           TextColor="Black"
+                                           FontSize="15"
+                                           HeightRequest="60"
+                                           VerticalTextAlignment="Center"
+                                           VerticalOptions="Center"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
