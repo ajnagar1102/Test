@@ -44,6 +44,7 @@
                   BackgroundColor="WhiteSmoke"
                    BorderColor="#fafafa"
                   IsVisible="False"
+                   HasShadow="True"
                    VerticalOptions="FillAndExpand">
                 <ListView x:Name="SubCtgrylist" 
                           HasUnevenRows="True"
@@ -64,13 +65,22 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                                    <Label Text="sub category title"
-                                           TextColor="Black"
+                                <StackLayout Padding="20,0"
+                                             Orientation="Horizontal"
+                                             VerticalOptions="FillAndExpand"
+                                             HorizontalOptions="FillAndExpand">
+                                    <Label TextColor="Black"
                                            FontSize="15"
                                            HeightRequest="60"
                                            VerticalTextAlignment="Center"
-                                           VerticalOptions="Center"/>
+                                           VerticalOptions="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="sub category title"/>
+                                                <Span Text="{Binding}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>

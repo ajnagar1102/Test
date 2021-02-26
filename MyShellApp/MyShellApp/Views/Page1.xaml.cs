@@ -17,14 +17,26 @@ namespace MyShellApp.Views
             InitializeComponent();
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private void slidAndPopup()
         {
-            Shell.Current.FlyoutIsPresented = true;
+            subGrid.Opacity = 0;
+            subGrid.IsVisible = true;
+
+            var animation = new Animation();
+
+            var menuTranslate = new Animation(v => subGrid.TranslationX = v, 300, 0);
+            var menuChangeWidth = new Animation(v => subGrid.WidthRequest = v, 0, 300);
+            var menuChangeOpacity = new Animation(v => subGrid.Opacity = v, 0, 1);
+
+            animation.Add(0, 1, menuTranslate);
+            animation.Add(0, 1, menuChangeWidth);
+            animation.Add(0, 0.2, menuChangeOpacity);
+            animation.Commit(this, "Slide", 2, 350, Easing.Linear);
         }
 
         private void Ctgrylist_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            subGrid.IsVisible = true;
+            slidAndPopup();
         }
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
